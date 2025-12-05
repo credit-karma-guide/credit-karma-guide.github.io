@@ -11,260 +11,163 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f1724;
-            --card: #ffffff;
-            --muted: #6b7280;
-            --accent: #0ea5a3;
-            --glass: rgba(255, 255, 255, 0.05);
-            --maxwidth: 1250px;
-            font-family: 'Inter', system-ui;
-        }
+    --bg: #0f1724;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --accent: #0ea5a3;
+    --glass: rgba(255,255,255,0.05);
+    --maxwidth: 1250px;
+    font-family: 'Inter', system-ui;
+}
 
-        html,
-        body {
-            margin: 0;
-            background: #f4f6f9;
-            color: #0b1220
-        }
+/* GLOBAL */
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #f4f6f9;
+    color: #0b1220;
+    overflow-x: hidden;
+}
 
-        .container {
-            max-width: var(--maxwidth);
-            margin: 50px auto;
-            padding: 0 32px
-        }
+/* WRAPPER */
+.container {
+    max-width: var(--maxwidth);
+    margin: 40px auto;
+    padding: 0 24px;
+}
 
-        /* Header */
-        .hero {
-            background: linear-gradient(90deg, var(--accent), #3b82f6);
-            color: white;
-            padding: 60px;
-            border-radius: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px
-        }
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+    background: linear-gradient(90deg, var(--accent), #3b82f6);
+    color: white;
+    padding: 48px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
 
-        .hero h1 {
-            margin: 0;
-            font-size: 42px;
-            line-height: 1.2
-        }
+.hero h1 {
+    font-size: clamp(26px, 4vw, 42px);
+    margin: 0;
+}
 
-        .meta {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.95)
-        }
+/* ---------------- MAIN GRID ---------------- */
+main {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 32px;
+    margin-top: 40px;
+}
 
-        .cta {
-            background: rgba(255, 255, 255, 0.18);
-            padding: 14px 22px;
-            border-radius: 12px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px
-        }
+/* CARD */
+.card {
+    background: var(--card);
+    padding: 26px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
 
-        /* Summary */
-        .summary {
-            display: flex;
-            gap: 24px;
-            margin-top: 22px;
-            align-items: center
-        }
+/* SIDEBAR */
+.sticky {
+    position: sticky;
+    top: 30px;
+}
 
-        .badge {
-            background: #fff;
-            color: #000;
-            padding: 10px 16px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 15px
-        }
+/* FEATURE GRID */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+}
 
-        .kv {
-            background: var(--card);
-            padding: 18px 22px;
-            border-radius: 14px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
-            min-width: 120px
-        }
+/* TEXT STYLES */
+h2 {
+    font-size: clamp(20px, 3vw, 26px);
+    margin-bottom: 12px;
+}
 
-        /* Layout */
-        main {
-            display: grid;
-            grid-template-columns: 1fr 360px;
-            gap: 40px;
-            margin-top: 40px
-        }
+p, li, ul, ol {
+    font-size: 16px;
+    line-height: 1.6;
+}
 
-        .card {
-            background: var(--card);
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06)
-        }
+/* PROS / CONS */
+.proscons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
 
-        /* Sidebar */
-        .sticky {
-            position: sticky;
-            top: 40px
-        }
+.pros, .cons {
+    flex: 1;
+    min-width: 260px;
+    padding: 18px;
+    border-radius: 14px;
+}
 
-        .scorecard {
-            display: flex;
-            gap: 16px;
-            align-items: center
-        }
+/* FAQ */
+details summary {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
 
-        .score-big {
-            font-size: 44px;
-            font-weight: 800;
-            color: #111
-        }
+/* FOOTER */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: var(--muted);
+}
 
-        .pill {
-            background: #e0e7ff;
-            padding: 8px 14px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 13px
-        }
+/* ---------------------------------------------------
+   🚀 RESPONSIVE BREAKPOINTS
+--------------------------------------------------- */
 
-        h2 {
-            font-size: 26px;
-            margin: 0 0 14px 0;
-            color: #0f172a;
-            font-weight: 700
-        }
-
-        h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #111
-        }
-
-        p {
-            line-height: 1.7;
-
-            font-size: 15px
-        }
-
-        /* Pros/Cons */
-        .proscons {
-            display: flex;
-            gap: 18px;
-            margin-top: 10px
-        }
-
-        .pros,
-        .cons {
-            flex: 1;
-            padding: 18px;
-            border-radius: 14px;
-            font-size: 15px
-        }
-
-        .pros {
-            background: #ecfdf5
-        }
-
-        .cons {
-            background: #fff7ed
-        }
-
-        ul {
-            margin: 10px 0 16px 22px;
-            font-size: 15px
-        }
-
-        ol {
-            font-size: 15px;
-            margin-left: 22px
-        }
-
-        /* Feature grid */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-top: 12px
-        }
-
-        .feature {
-            padding: 14px;
-            border-radius: 12px;
-            background: #f2f3f7;
-            font-size: 15px;
-            font-weight: 500;
-            color: #111
-        }
-
-        /* FAQ */
-        .faq-item {
-            border-top: 1px solid #e5e7eb;
-            padding: 12px 0
-        }
-
-        details summary {
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 15px;
-            color: #111
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-            color: var(--muted)
-        }
-
-        /* Responsive */
-      /* Tablets & medium screens */
+/* Tablets (up to 992px) */
 @media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+    }
+
     main {
         grid-template-columns: 1fr;
     }
 
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 50px;
-    }
-
     .sticky {
         position: static;
+        margin-top: 20px;
     }
 }
 
-/* Mobile phones */
+/* Mobile (up to 600px) */
 @media (max-width: 600px) {
-    .hero h1 {
-        font-size: 30px;
+    .container {
+        padding: 0 14px;
     }
 
     .hero {
-        padding: 40px 24px;
+        padding: 28px 18px;
+    }
+
+    .card {
+        padding: 18px;
     }
 
     .features {
         grid-template-columns: 1fr;
     }
 
-    .card {
-        padding: 20px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
     p, li {
         font-size: 15px;
     }
-        }
+}
+
     </style>
 </head>
 
